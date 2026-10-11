@@ -1,0 +1,6 @@
+{
+  "name": "Siemens Digital Twin — Industrial Motor Intelligence Platform",
+  "description": "Industrial motor and pump digital twin platform with real-time telemetry, predictive maintenance, virtual commissioning, and industrial automation architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
