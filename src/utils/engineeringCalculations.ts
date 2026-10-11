@@ -127,8 +127,8 @@ export function calculateStatisticalBounds(values: number[]): {
 
 /**
  * Calculates Estimated Remaining Useful Life (RUL) in hours based on
- * cumulative stress penalty from ISO vibration severity and thermal degradation.
- * Baseline healthy motor rated L10h bearing life ~ 20,000h (nominal 8,500h current inspection cycle).
+ * a simplified heuristic degradation model using vibration, temperature, and anomaly inputs.
+ * Baseline nominal inspection cycle: 8,500 hours.
  */
 export function estimateRulHours(
   anomalyScore: number,
@@ -140,9 +140,9 @@ export function estimateRulHours(
 } {
   const nominalRul = 8500;
 
-  // Vibration exponential stress factor (Paris Law approximation)
+  // Vibration stress factor (simplified heuristic penalty relative to nominal 1.1 mm/s)
   const vibStressFactor = Math.max(1, Math.pow(vibrationRms / 1.1, 1.6));
-  // Arrhenius thermal factor (10-degree rule: life halves for every 10°C over nominal)
+  // Thermal stress factor (simplified heuristic penalty for operating above nominal 52°C)
   const thermalOverNominal = Math.max(0, tempC - 52);
   const thermalFactor = Math.pow(2, thermalOverNominal / 18.0);
 

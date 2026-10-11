@@ -158,7 +158,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
           title="Stator Winding Temp"
           value={currentTelemetry.statorTempC.toFixed(1)}
           unit="°C"
-          subValue={`Raw ADC: %IW12 = ${currentTelemetry.rawTempAdc}`}
+          subValue={`Simulated Raw ADC: %IW12 = ${currentTelemetry.rawTempAdc}`}
           icon={Thermometer}
           status={getTempStatus()}
           thresholdNote={`Trip Limit: ${settings.thresholds.tempCritical}°C`}
@@ -175,7 +175,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
         />
 
         <KPICard
-          title="Phase Current (U)"
+          title="Phase Current (RMS)"
           value={currentTelemetry.phaseCurrentA.toFixed(1)}
           unit="A"
           subValue={`Rated FLA: 81.5 A (${((currentTelemetry.phaseCurrentA / 81.5) * 100).toFixed(0)}%)`}
@@ -195,7 +195,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
         />
       </div>
 
-      {/* Middle Row: Health Gauge + Live Telemetry Chart */}
+      {/* Middle Row: Health Gauge + Simulated Telemetry Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column: Health Gauge */}
         <div className="lg:col-span-1 flex flex-col gap-4">
@@ -247,7 +247,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Right Column: Live Telemetry Line Chart */}
+        {/* Right Column: Simulated Telemetry Line Chart */}
         <div className="lg:col-span-2">
           <TelemetryCharts />
         </div>

@@ -248,10 +248,10 @@ export const TelemetryPage: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
           <div>
             <h3 className="font-semibold text-slate-900 dark:text-white text-sm">
-              Live Telemetry Ring Buffer (Latest 10 Samples)
+              Simulated Telemetry Ring Buffer (Latest 10 Samples)
             </h3>
             <p className="text-[11px] text-slate-500">
-              Direct physical measurements and derived mechanical metrics (Torque = 9550 × P_act / N).
+              Simulated sensor measurements and derived mechanical metrics (Torque = 9550 × P_act / N).
             </p>
           </div>
           <span className="text-xs font-mono text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">

@@ -78,7 +78,7 @@ export const FaultInjectionPanel: React.FC = () => {
     {
       id: 'comm_interruption',
       title: 'OPC UA Network Loss',
-      description: 'Fieldbus packet drop / gateway disconnection freezing live telemetry.',
+      description: 'Fieldbus packet drop / gateway disconnection freezing simulated telemetry.',
       severity: 'critical',
       icon: WifiOff,
       expectedSymptom: 'Data marked STALE, timestamp frozen, stale age timer ticks up.',

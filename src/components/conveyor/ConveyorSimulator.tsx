@@ -49,7 +49,7 @@ export const ConveyorSimulator: React.FC = () => {
     {
       timestamp: '09:14:02',
       level: 'info',
-      message: '[INFO] Local PLC behavior simulator synchronized with conveyor kinematics model.',
+      message: '[INFO] Local PLC behavior simulator initialized with conveyor kinematics model.',
     },
     {
       timestamp: '09:14:05',

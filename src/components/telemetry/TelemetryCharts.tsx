@@ -51,7 +51,7 @@ export const TelemetryCharts: React.FC = () => {
             </span>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Dedicated physical engineering scales with calibrated ISO warning and trip thresholds.
+            Dedicated physical engineering scales with configured reference thresholds (vibration reference: ISO 10816-3 for educational comparison).
           </p>
         </div>
 
@@ -322,7 +322,7 @@ export const TelemetryCharts: React.FC = () => {
         </div>
       )}
 
-      {/* Mode B: Quad 4-Channel Synchronized Engineering Scope Grid */}
+      {/* Mode B: Quad 4-Channel Simulated Engineering Scope Grid */}
       {viewMode === 'quad_scope' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 select-none">
           {/* Subplot 1: Vibration RMS */}

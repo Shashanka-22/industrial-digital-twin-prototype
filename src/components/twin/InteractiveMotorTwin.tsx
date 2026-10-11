@@ -435,7 +435,7 @@ export const InteractiveMotorTwin: React.FC = () => {
             </span>
           </div>
           <div>
-            <span className="text-slate-400 block text-[11px]">Transducer Hardware</span>
+            <span className="text-slate-400 block text-[11px]">Transducer Specification</span>
             <span className="font-medium text-slate-800 dark:text-slate-200 truncate block">
               {selectedSensor.type}
             </span>

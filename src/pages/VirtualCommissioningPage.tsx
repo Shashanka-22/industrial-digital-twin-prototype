@@ -71,7 +71,7 @@ export const VirtualCommissioningPage: React.FC = () => {
               </h4>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Operational condition monitoring. Ingests operational telemetry from field sensors to calculate degradation, anomalies, and RUL, closing the loop back to the product design engineers.
+              Operational condition monitoring concept. In production plants, ingests operational telemetry from field sensors (modeled synthetically in this prototype) to calculate degradation, anomalies, and RUL, closing the loop back to product design engineers.
             </p>
           </div>
         </div>

@@ -23,7 +23,7 @@ export const ArchitecturePage: React.FC = () => {
         <div className="flex items-center gap-3 text-xs font-mono text-slate-600 dark:text-slate-300">
           <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             <span className="text-slate-400 block text-[10px]">Cybersecurity</span>
-            <span className="font-bold text-slate-900 dark:text-white">IEC 62443 SL-3 Architecture</span>
+            <span className="font-bold text-slate-900 dark:text-white">IEC 62443 Security-Level 3 Reference Architecture</span>
           </div>
         </div>
       </div>

@@ -568,7 +568,7 @@ export const ArchitectureFlow: React.FC = () => {
           <div className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
             <span className="font-bold text-teal-700 dark:text-teal-400 block">Closed-Loop Twin Feedback</span>
             <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-1">
-              Operational field wear data feeds back into CAD and engineering models to optimize the next design generation of motor bearings and impellers.
+              Operational wear telemetry feeds back into CAD and engineering models to optimize the next design generation of motor bearings and impellers.
             </p>
           </div>
         </div>

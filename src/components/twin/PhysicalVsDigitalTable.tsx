@@ -10,7 +10,7 @@ interface ComparisonRow {
   digital: number;
   absDelta: number;
   relDeltaPct: number;
-  status: 'Synchronized' | 'Minor deviation' | 'Calibration required' | 'Data unavailable';
+  status: 'Within simulated tolerance' | 'Minor deviation' | 'Calibration required' | 'Data unavailable';
   precision: number;
 }
 
@@ -19,9 +19,9 @@ export const PhysicalVsDigitalTable: React.FC = () => {
 
   const getStatus = (
     relDeltaPct: number
-  ): 'Synchronized' | 'Minor deviation' | 'Calibration required' | 'Data unavailable' => {
+  ): 'Within simulated tolerance' | 'Minor deviation' | 'Calibration required' | 'Data unavailable' => {
     if (!isConnected || currentTelemetry.isStale) return 'Data unavailable';
-    if (relDeltaPct <= 3.0) return 'Synchronized';
+    if (relDeltaPct <= 3.0) return 'Within simulated tolerance';
     if (relDeltaPct <= 10.0) return 'Minor deviation';
     return 'Calibration required';
   };
@@ -35,7 +35,7 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       digital: digitalModelRef.speedRpm,
       absDelta: Math.abs(currentTelemetry.speedRpm - digitalModelRef.speedRpm),
       relDeltaPct: (Math.abs(currentTelemetry.speedRpm - digitalModelRef.speedRpm) / digitalModelRef.speedRpm) * 100,
-      status: 'Synchronized',
+      status: 'Within simulated tolerance',
       precision: 1,
     },
     {
@@ -46,7 +46,7 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       digital: digitalModelRef.statorTempC,
       absDelta: Math.abs(currentTelemetry.statorTempC - digitalModelRef.statorTempC),
       relDeltaPct: (Math.abs(currentTelemetry.statorTempC - digitalModelRef.statorTempC) / digitalModelRef.statorTempC) * 100,
-      status: 'Synchronized',
+      status: 'Within simulated tolerance',
       precision: 1,
     },
     {
@@ -57,7 +57,7 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       digital: digitalModelRef.bearingVibrationRms,
       absDelta: Math.abs(currentTelemetry.bearingVibrationRms - digitalModelRef.bearingVibrationRms),
       relDeltaPct: (Math.abs(currentTelemetry.bearingVibrationRms - digitalModelRef.bearingVibrationRms) / digitalModelRef.bearingVibrationRms) * 100,
-      status: 'Synchronized',
+      status: 'Within simulated tolerance',
       precision: 2,
     },
     {
@@ -68,7 +68,7 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       digital: digitalModelRef.phaseCurrentA,
       absDelta: Math.abs(currentTelemetry.phaseCurrentA - digitalModelRef.phaseCurrentA),
       relDeltaPct: (Math.abs(currentTelemetry.phaseCurrentA - digitalModelRef.phaseCurrentA) / digitalModelRef.phaseCurrentA) * 100,
-      status: 'Synchronized',
+      status: 'Within simulated tolerance',
       precision: 1,
     },
     {
@@ -79,7 +79,7 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       digital: digitalModelRef.torqueNm,
       absDelta: Math.abs(currentTelemetry.torqueNm - digitalModelRef.torqueNm),
       relDeltaPct: (Math.abs(currentTelemetry.torqueNm - digitalModelRef.torqueNm) / digitalModelRef.torqueNm) * 100,
-      status: 'Synchronized',
+      status: 'Within simulated tolerance',
       precision: 1,
     },
     {
@@ -90,7 +90,7 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       digital: digitalModelRef.actualPowerKw,
       absDelta: Math.abs(currentTelemetry.powerKw - digitalModelRef.actualPowerKw),
       relDeltaPct: (Math.abs(currentTelemetry.powerKw - digitalModelRef.actualPowerKw) / digitalModelRef.actualPowerKw) * 100,
-      status: 'Synchronized',
+      status: 'Within simulated tolerance',
       precision: 1,
     },
   ].map((item) => ({
@@ -172,9 +172,9 @@ export const PhysicalVsDigitalTable: React.FC = () => {
 
                 <td className="py-3 px-3 text-center font-sans">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium">
-                    {row.status === 'Synchronized' && (
+                    {row.status === 'Within simulated tolerance' && (
                       <span className="text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full flex items-center gap-1 border border-emerald-200 dark:border-emerald-800">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Synchronized
+                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Within Simulated Tolerance
                       </span>
                     )}
                     {row.status === 'Minor deviation' && (
@@ -203,9 +203,9 @@ export const PhysicalVsDigitalTable: React.FC = () => {
       {/* Industrial pipeline flow banner */}
       <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className="font-medium text-slate-700 dark:text-slate-300">Synchronization Pipeline:</span>
+          <span className="font-medium text-slate-700 dark:text-slate-300">Model Architecture Pipeline:</span>
           <span className="font-mono text-[11px] text-teal-700 dark:text-teal-400">
-            Simulated Transducers → S7-1500 (ET 200SP) → Virtual OPC UA Interface → Edge Analytics Container → Cloud Twin
+            Simulated Transducers → S7-1500 (ET 200SP Reference) → Virtual OPC UA Interface → Edge Analytics Container → Cloud Twin
           </span>
         </div>
         <span className="text-[11px] italic">
